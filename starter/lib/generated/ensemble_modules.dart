@@ -12,8 +12,8 @@ import 'package:ensemble/framework/stub/location_manager.dart';
 import 'package:ensemble/framework/stub/plaid_link_manager.dart';
 import 'package:ensemble/module/auth_module.dart';
 import 'package:ensemble/module/location_module.dart';
-//import 'package:ensemble_network_info/network_info.dart';
-//import 'package:ensemble_firebase_analytics/firebase_analytics.dart';
+import 'package:ensemble_network_info/network_info.dart';
+import 'package:ensemble_firebase_analytics/firebase_analytics.dart';
 // import 'package:ensemble_location/location_module.dart';
 import 'package:get_it/get_it.dart';
 
@@ -21,7 +21,7 @@ import 'package:get_it/get_it.dart';
 // import 'package:ensemble_chat/ensemble_chat.dart';
 
 // Uncomment to enable Auth service
-// import 'package:ensemble_auth/auth_module.dart';
+import 'package:ensemble_auth/auth_module.dart';
 
 // Uncomment to enable ensemble_contacts service
 // import 'package:ensemble_contacts/contact_manager.dart';
@@ -57,15 +57,15 @@ class EnsembleModules {
   static const useConnect = false;
   static const useLocation = false;
   static const useDeeplink = false;
-  static const useFirebaseAnalytics = false;
+  static const useFirebaseAnalytics = true;
   static const useNotifications = false;
-  static const useNetworkInfo = false;
+  static const useNetworkInfo = true;
 
   // widgets
   static const enableChat = false;
 
   // optional modules
-  static const useAuth = false;
+  static const useAuth = true;
 
   void init() {
     // Note that notifications is not a module
@@ -126,7 +126,7 @@ class EnsembleModules {
 
     if (useAuth) {
       // Uncomment to enable Auth service
-      // GetIt.I.registerSingleton<AuthModule>(AuthModuleImpl());
+      GetIt.I.registerSingleton<AuthModule>(AuthModuleImpl());
     } else {
       GetIt.I.registerSingleton<AuthModule>(AuthModuleStub());
     }
@@ -139,14 +139,14 @@ class EnsembleModules {
     }
     if (useFirebaseAnalytics) {
       //uncomment to enable firebase analytics
-      //GetIt.I.registerSingleton<LogProvider>(FirebaseAnalyticsProvider());
+      GetIt.I.registerSingleton<LogProvider>(FirebaseAnalyticsProvider());
     } else {
       GetIt.I.registerSingleton<LogProvider>(LogProviderStub());
     }
 
     if (useNetworkInfo) {
       //uncomment to enable network info
-      //GetIt.I.registerSingleton<NetworkInfoManager>(NetworkInfoImpl());
+      GetIt.I.registerSingleton<NetworkInfoManager>(NetworkInfoImpl());
     } else {
       GetIt.I.registerSingleton<NetworkInfoManager>(NetworkInfoManagerStub());
     }

@@ -53,40 +53,10 @@ definitions:
   ensemble:
     # appId can be found on Ensemble Studio. Navigate to your app, click the menu icon on top right, and copy your appId
     # here is the appId for Ensemble Kitchen sink. You can view this app under demo apps in studio.
-    appId: e24402cb-75e2-404c-866c-29e6c3dd7992
+    # appId: wvN7BLPl0cCiKvv2VG14
+    appId: pSEzKcaT6F0DUO7E6IOP
 
 services:
-  # Social sign-in
-  signIn:
-    serverUri:
-
-    providers:
-
-      # replace with your clientId
-      google:
-        iOSClientId: 126811761383-8idgi6nkva2tb33j42l5vpqu3jli6eak.apps.googleusercontent.com
-        androidClientId: 126811761383-pm0dlhb9fb8svso7f9bapv3fojmncvfo.apps.googleusercontent.com
-        webClientId: 126811761383-3k0ojg0tbuslc1pbhh0vllu1orbr3aml.apps.googleusercontent.com
-        serverClientId: 126811761383-5grp0akbag9aam2nl0r7j5j6u77l39eb.apps.googleusercontent.com
-
-
-  # Built-in API authorization. Override these callbacks in your Starter App.
-  # You may use https redirect (Universal Links) or custom scheme redirects.
-  # If using https redirect, redirectScheme should be empty
-  apiAuthorization:
-    # replace this with your server (TODO: provide documentation)
-    tokenExchangeServer: https://us-central1-ensemble-web-studio.cloudfunctions.net/oauth-gettoken
-
-    providers:
-      google:
-        clientId: 326748243798-btoriljk7i7sgsr9mvas90b0gn9vfebm.apps.googleusercontent.com
-        redirectUri: https://app.ensembleui.com/oauth-starter
-        redirectScheme:
-      microsoft:
-        clientId: 36501417-8ad8-4885-82eb-232f345524ac
-        redirectUri: msauth.com.ensembleui.starter://auth
-        redirectScheme: msauth.com.ensembleui.starter
-
 
 # override any environment variables on studio.ensembleui.com here
 # e.g. load local assets instead of URL
@@ -96,24 +66,30 @@ environmentVariables:
   # defined in your App on studio.ensembleui.com.
   # This asset value is empty, meaning a reference of {env.exampleAssetVariable}pic.png
   # will be loaded locally from /ensemble/assets/pic.png
-  exampleAssetVariable:
+  assets:
 
 # uncomment the following when using firebase analytics.
 # For iOS - Make sure that GoogleService-Info.plist is placed under the ios/Runner folder AND has been added to the Xcode project. Just putting the file under Runner folder is NOT sufficient, it has to be added to the prject using Xcode.
 # For Android - Make sure that google-services.json is placed under android/app folder
 # For Web - make sure that the web config is present under account/firebase/web below.
-#analytics:
-#  provider: firebase
-#  enabled: true
-#  enableConsoleLogs: true
+analytics:
+  provider: firebase
+  enabled: true
+  enableConsoleLogs: true
 # uncomment the following when using Firebase analytics for the Web and replace the values with the values from your Firebase app.
-#accounts:
-#  firebase:
-#    web:
-#      apiKey: "xxxxx"
-#      authDomain: "xxxxx"
-#      projectId: "xxxx"
-#      storageBucket: "xxxxx"
-#      messagingSenderId: "nnnnnn"
-#      appId: "n:xxxxxxx"
-#      measurementId: "G-xxxxx"
+accounts:
+  firebase:
+    android:
+      apiKey: "AIzaSyCGhJNYzPva9H_jrg7y6APusgPIiQz0aW4"
+      projectId: 'kpn-home-725de'
+      storageBucket: 'kpn-home-725de.appspot.com'
+      messagingSenderId: '105316420553'
+      appId: '1:105316420553:android:a3e86579f4f3d024f3b618'
+      measurementId: 'G-180KBPF335'
+    ios:
+      apiKey: 'AIzaSyC4D_BKOSBI3qt1jidSmo3Yiag8jrQpE04'
+      projectId: 'kpn-home-725de'
+      storageBucket: 'kpn-home-725de.appspot.com'
+      messagingSenderId: '105316420553'
+      appId: '1:105316420553:ios:849d5432ae83f6d3f3b618'
+      measurementId: 'G-180KBPF335'

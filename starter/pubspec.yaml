@@ -14,7 +14,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 0.2.6+1
 
 environment:
   sdk: ">=3.0.6 <4.0.0"
@@ -82,25 +82,25 @@ dependencies:
   #     path: modules/deeplink
 
   # Uncomment to enable Auth module
-  # ensemble_auth:
-  #   git:
-  #     url: https://github.com/EnsembleUI/ensemble.git
-  #     ref: main
-  #     path: modules/auth
+  ensemble_auth:
+    git:
+      url: https://github.com/EnsembleUI/ensemble.git
+      ref: main
+      path: modules/auth
 
   # Uncomment to enable firebase analytics
-  # ensemble_firebase_analytics:
-  #   git:
-  #     url: https://github.com/EnsembleUI/ensemble.git
-  #     ref: main
-  #     path: modules/firebase_analytics
+  ensemble_firebase_analytics:
+    git:
+      url: https://github.com/EnsembleUI/ensemble.git
+      ref: main
+      path: modules/firebase_analytics
 
   # Uncomment to enable NetworkInfo
-#  ensemble_network_info:
-#   git:
-#     url: https://github.com/EnsembleUI/ensemble.git
-#     ref: main
-#     path: modules/ensemble_network_info
+  ensemble_network_info:
+    git:
+      url: https://github.com/EnsembleUI/ensemble.git
+      ref: main
+      path: modules/ensemble_network_info
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -118,6 +118,35 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: "^0.13.1"
+  flutter_native_splash: ^2.3.7
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+
+flutter_native_splash:
+  image: "assets/icon/splash.png"
+  color: "#F7FCFC"
+  android_12:
+    image: "assets/icon/splash.png"
+    color: "#F7FCFC"
+    
+
+flutter_launcher_icons:
+  android: false
+  ios: true
+  image_path: "assets/icon/icon.png"
+  web:
+    generate: false
+    image_path: "assets/icon/icon.png"
+
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -129,6 +158,32 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  
+  fonts:
+    - family: KpnSI
+      fonts:
+        - asset: "ensemble/assets/fonts/si-icons.ttf"
+          weight: 400
+          style: normal
+    
+    - family: KpnUI
+      fonts:
+        - asset: "ensemble/assets/fonts/ui-icons.ttf"
+          weight: 400
+          style: normal
+    
+    - family: KpnMetric
+      fonts:
+        - asset: "ensemble/assets/fonts/metric-regular.otf"
+          weight: 400
+          style: normal
+        - asset: "ensemble/assets/fonts/metric-bold.otf"
+          weight: 700
+          style: normal
+        - asset: "ensemble/assets/fonts/metric-semibold.otf"
+          weight: 600
+          style: normal
+
   assets:
     - .env
     - ensemble/
@@ -136,7 +191,8 @@ flutter:
 
     # put your app's images in this folder
     - ensemble/assets/
+    - assets/icon/
 
     # list all your Apps directories here. It's a Flutter requirement
-    - ensemble/apps/helloApp/
+    # - ensemble/apps/helloApp/
     #- ensemble/apps/another_app_of_yours/
