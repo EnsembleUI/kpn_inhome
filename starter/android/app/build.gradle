@@ -95,11 +95,7 @@ android {
 
     buildTypes {
         release {
-            // Use this while developing so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-
-            // Use this when releasing your App. See https://docs.ensembleui.com/#/deploy/5-android-play-store
-            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
 }
